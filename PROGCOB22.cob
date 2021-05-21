@@ -1,0 +1,48 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROGCOB22.
+      *********************************
+      * AREA DE COMENTARIOS - REMARKS
+      * AUTHOR = FELIPE
+      * OBJETIVO: SIMULAR UM INVESTIMENTO FINANCEIRO
+      * DATA   = 18/05/2021
+      *********************************
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77  WRK-VALORINVESTIDO         PIC 9(06)V99       VALUE ZEROS.
+       77  WRK-PERIODO                PIC 9(03)          VALUE ZEROS.
+       77  WRK-TAXA                   PIC 9(02)          VALUE ZEROS.
+       77  WRK-VALORFINAL             PIC $ZZZ.ZZ9,99    VALUE ZEROS.
+
+       PROCEDURE DIVISION.
+       0001-PRINCIPAL.
+               PERFORM 0100-INICIALIZAR.
+               PERFORM 0200-PROCESSAR.
+               PERFORM 0300-FINALIZAR.
+
+               STOP RUN.
+
+       0100-INICIALIZAR.
+           DISPLAY 'VALOR INVESTIDO..'
+           ACCEPT WRK-VALORINVESTIDO.
+
+           DISPLAY 'PERIODO EM MESES..'.
+           ACCEPT WRK-PERIODO.
+
+           DISPLAY 'TAXA DE RENDIMENTO..'.
+           ACCEPT WRK-TAXA.
+
+       0200-PROCESSAR.
+           PERFORM WRK-PERIODO TIMES
+               COMPUTE WRK-VALORINVESTIDO =
+               WRK-VALORINVESTIDO * (WRK-TAXA /100 + 1)
+           END-PERFORM.
+
+       0300-FINALIZAR.
+           DISPLAY '----------------'.
+           MOVE WRK-VALORINVESTIDO TO WRK-VALORFINAL.
+           DISPLAY 'VALOR PARA RESGATE..' WRK-VALORFINAL.
+           DISPLAY 'FINAL DE PROCESSAMENTO'.
