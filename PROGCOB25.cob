@@ -7,15 +7,15 @@
       * DATA   = 01/05/2021
       *********************************
        ENVIRONMENT DIVISION.
-       CONFIGURATION SECTION.
-       SPECIAL-NAMES.
-           DECIMAL-POINT IS COMMA.
+           CONFIGURATION SECTION.
+           SPECIAL-NAMES.
+               DECIMAL-POINT IS COMMA.
        DATA DIVISION.
-       WORKING-STORAGE SECTION.
-       01  WRK-MESES.
-           02 WRK-MES      PIC 9(6)V99 OCCURS 12 TIMES.
-       77  WRK-MESVENDA    PIC 9(2)    VALUE ZEROS.
-       77  WRK-VALOR       PIC 9(6)V99 VALUE ZEROS.
+           WORKING-STORAGE SECTION.
+           01  WRK-MESES.
+               02 WRK-MES      PIC 9(6)V99 OCCURS 12 TIMES.
+           77  WRK-MESVENDA    PIC 9(2)    VALUE ZEROS.
+           77  WRK-VALOR       PIC 9(6)V99 VALUE ZEROS.
 
        PROCEDURE DIVISION.
        0001-PRINCIPAL.
